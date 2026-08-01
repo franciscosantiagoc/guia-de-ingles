@@ -70,3 +70,21 @@ No necesitas hacer nada manualmente para activar o desactivar esto: solo depende
 - `src/topics/evolveN/unitM/*.jsx` — el contenido de cada lección (vocabulary, grammar1, grammar2, functional, skills).
 - `src/components/` — componentes reutilizables (Pagination, WritingFeedback, etc.).
 - `netlify/functions/` — funciones serverless (actualmente solo `grade-writing.js`).
+
+## Flujo de trabajo con Git
+
+- **`master`** contiene la estructura base del sitio (tema, navegación, componentes, configuración de la IA) sin contenido de unidades.
+- **`develop`** parte de ahí y agrega el contenido, un commit por unidad.
+
+Los mensajes de commit siguen el estándar de [Conventional Commits](https://www.conventionalcommits.org/), usando un prefijo que indica el tipo de cambio:
+
+- `feat` — funcionalidad o contenido nuevo (por ejemplo, una unidad completa).
+- `fix` — corrección de un error.
+- `chore` — mantenimiento o configuración que no es una feature ni un fix (dependencias, setup inicial, tooling).
+- `docs` — cambios solo de documentación (como este README).
+- `style` — cambios de formato que no afectan la lógica (espacios, indentación, etc.).
+- `refactor` — reestructurar código existente sin cambiar su comportamiento.
+- `test` — agregar o corregir pruebas.
+- `perf` — mejoras de rendimiento.
+
+El scope de las unidades incluye el nivel/libro al que pertenecen (`evolveN-unidad-M`), para no generar confusión cuando existan unidades con el mismo número en niveles distintos. Ejemplo real de esta convención en el historial: `feat(evolve1-unidad-3): Home Sweet Home (posesivos, habitaciones y muebles)`.
