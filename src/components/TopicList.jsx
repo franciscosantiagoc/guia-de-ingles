@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import TopicViewer from './TopicViewer';
 
-const TopicList = ({ level, unit, onSelectUnit }) => {
-  const [activeTopic, setActiveTopic] = useState(unit.topics[0]);
+const TopicList = ({ level, unit, onSelectUnit, initialTopicId }) => {
+  const [activeTopic, setActiveTopic] = useState(
+    () => unit.topics.find((t) => t.id === initialTopicId) || unit.topics[0]
+  );
 
   if (!unit) return null;
 
