@@ -1432,6 +1432,63 @@ body {
   white-space: nowrap;
 }
 
+/* Selector de columnas (tiempos) a mostrar en la tabla de verbos */
+.repaso-verb-columns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(var(--overlay-rgb), 0.03);
+  border: 1px solid var(--border-color);
+}
+
+.repaso-verb-columns-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.repaso-verb-column-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* Tabla de verbos: fila de encabezado + filas con columnas dinámicas según
+   cuántos tiempos eligió mostrar el usuario (--verb-columns). */
+.repaso-list-item-verb,
+.repaso-list-head {
+  display: grid;
+  grid-template-columns: auto minmax(130px, 1.1fr) repeat(var(--verb-columns), minmax(85px, 1fr)) minmax(110px, 1fr) minmax(64px, auto);
+  column-gap: 12px;
+}
+
+.repaso-list-head {
+  background: transparent;
+  border: none;
+  padding: 0 16px 6px;
+}
+
+.repaso-list-head-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.repaso-verb-col-value {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
 .repaso-empty {
   color: var(--text-muted);
   font-size: 0.9rem;
@@ -1600,6 +1657,129 @@ body {
   margin-top: 4px;
 }
 
+/* Tabs Vocabulario / Verbos dentro de Repaso */
+.repaso-content-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.repaso-tab-btn {
+  background: rgba(var(--overlay-rgb), 0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 10px 18px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.repaso-tab-btn:hover {
+  background: rgba(var(--active-accent-rgb), 0.12);
+  color: var(--text-main);
+}
+
+.repaso-tab-btn.active {
+  background: var(--active-accent);
+  border-color: var(--active-accent);
+  color: #fff;
+}
+
+.repaso-verb-forms {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* Grid de formas verbales (reverso de la tarjeta de verbos) */
+.flashcard-verb-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 280px;
+  margin-top: 6px;
+}
+
+.flashcard-verb-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(var(--overlay-rgb), 0.04);
+  border: 1px solid var(--border-color);
+}
+
+.flashcard-verb-form-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.flashcard-verb-form-value {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.flashcard-verb-form-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.flashcard-verb-form-examples {
+  list-style: none;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.flashcard-verb-form-examples li {
+  line-height: 1.35;
+}
+
+.flashcard-verb-form-examples li .flashcard-example-en {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.flashcard-verb-form-examples li .flashcard-example-es {
+  font-size: 0.68rem;
+  font-style: normal;
+  color: var(--text-muted);
+  opacity: 0.8;
+  margin: 1px 0 0;
+}
+
+/* Las tarjetas de verbos muestran más contenido (3 tiempos x 2 ejemplos),
+   así que crecen y permiten scroll en el reverso en vez de recortar texto. */
+.flashcard.flashcard-verb {
+  height: 480px;
+}
+
+.flashcard.flashcard-verb .flashcard-back {
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding-top: 28px;
+  padding-bottom: 20px;
+}
+
+.flashcard.flashcard-verb .flashcard-verb-form {
+  display: block;
+  align-items: stretch;
+}
+
 .session-controls {
   display: flex;
   align-items: center;
@@ -1612,6 +1792,71 @@ body {
   align-items: center;
   gap: 20px;
   text-align: center;
+}
+
+/* Panel "más ejemplos con IA" (ChatGPT) — solo tarjetas de verbos */
+.ai-examples-panel {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-examples-toggle-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.ai-examples-toggle {
+  flex: 1;
+}
+
+.ai-examples-toggle-row .btn-secondary {
+  flex: 1;
+}
+
+.ai-examples-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: rgba(var(--overlay-rgb), 0.03);
+}
+
+.ai-examples-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.ai-examples-tenses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px 12px;
+}
+
+.ai-examples-tense-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.ai-examples-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-color);
 }
 
 @media (max-width: 640px) {
