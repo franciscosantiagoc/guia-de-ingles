@@ -48,6 +48,24 @@ const IRREGULAR = {
   escribir: { participio: 'escrito' },
   abrir: { participio: 'abierto' },
   convertir: { gerundio: 'convirtiendo', participio: 'convertido', preteritoYo: 'convertí', preteritoEllos: 'convirtieron' },
+
+  // --- Bloque 3a (verbos añadidos 2026-08-07) ---
+  perseguir: { gerundio: 'persiguiendo', participio: 'perseguido', preteritoYo: 'perseguí', preteritoEllos: 'persiguieron' },
+  competir: { gerundio: 'compitiendo', participio: 'competido', preteritoYo: 'competí', preteritoEllos: 'compitieron' },
+  contener: { gerundio: 'conteniendo', participio: 'contenido', preteritoYo: 'contuve', preteritoEllos: 'contuvieron' },
+  // "-uir" con raíz terminada en vocal: gerundio/pretérito-ellos con "y", participio
+  // sin tilde (regla ortográfica distinta a "leer/creer/caer/oír/traer", que sí llevan tilde).
+  contribuir: { gerundio: 'contribuyendo', participio: 'contribuido', preteritoYo: 'contribuí', preteritoEllos: 'contribuyeron' },
+  destruir: { gerundio: 'destruyendo', participio: 'destruido', preteritoYo: 'destruí', preteritoEllos: 'destruyeron' },
+  reconstruir: { gerundio: 'reconstruyendo', participio: 'reconstruido', preteritoYo: 'reconstruí', preteritoEllos: 'reconstruyeron' },
+  corregir: { gerundio: 'corrigiendo', participio: 'corregido', preteritoYo: 'corregí', preteritoEllos: 'corrigieron' },
+  morir: { gerundio: 'muriendo', participio: 'muerto', preteritoYo: 'morí', preteritoEllos: 'murieron' },
+  prever: { participio: 'previsto' },
+  predecir: { gerundio: 'prediciendo', participio: 'predicho', preteritoYo: 'predije', preteritoEllos: 'predijeron' },
+  cubrir: { participio: 'cubierto' },
+  descubrir: { participio: 'descubierto' },
+  describir: { participio: 'descrito' },
+  reescribir: { participio: 'reescrito' },
 };
 
 // Traducción "primaria" del verbo: primera opción antes de "/" y sin las
