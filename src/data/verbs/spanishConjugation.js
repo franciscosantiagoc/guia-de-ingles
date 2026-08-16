@@ -66,6 +66,22 @@ const IRREGULAR = {
   descubrir: { participio: 'descubierto' },
   describir: { participio: 'descrito' },
   reescribir: { participio: 'reescrito' },
+
+  // --- Bloque 3b (verbos añadidos 2026-08-07) ---
+  deshacer: { gerundio: 'deshaciendo', participio: 'deshecho', preteritoYo: 'deshice', preteritoEllos: 'deshicieron' },
+  rehacer: { gerundio: 'rehaciendo', participio: 'rehecho', preteritoYo: 'rehice', preteritoEllos: 'rehicieron' },
+  retener: { gerundio: 'reteniendo', participio: 'retenido', preteritoYo: 'retuve', preteritoEllos: 'retuvieron' },
+  // Familia "-ducir" (conducir/reducir/traducir...): solo el pretérito es
+  // irregular (reduje/redujeron), gerundio y participio ya salen bien de la
+  // regla regular (reduciendo/reducido), así que se sobrescriben solo esos 2 campos.
+  reducir: { preteritoYo: 'reduje', preteritoEllos: 'redujeron' },
+  traducir: { preteritoYo: 'traduje', preteritoEllos: 'tradujeron' },
+  repetir: { gerundio: 'repitiendo', participio: 'repetido', preteritoYo: 'repetí', preteritoEllos: 'repitieron' },
+  requerir: { gerundio: 'requiriendo', participio: 'requerido', preteritoYo: 'requerí', preteritoEllos: 'requirieron' },
+  sugerir: { gerundio: 'sugiriendo', participio: 'sugerido', preteritoYo: 'sugerí', preteritoEllos: 'sugirieron' },
+  transferir: { gerundio: 'transfiriendo', participio: 'transferido', preteritoYo: 'transferí', preteritoEllos: 'transfirieron' },
+  sonreír: { gerundio: 'sonriendo', participio: 'sonreído', preteritoYo: 'sonreí', preteritoEllos: 'sonrieron' },
+  suponer: { gerundio: 'suponiendo', participio: 'supuesto', preteritoYo: 'supuse', preteritoEllos: 'supusieron' },
 };
 
 // Traducción "primaria" del verbo: primera opción antes de "/" y sin las
